@@ -12,13 +12,17 @@ public  without sharing class AccountLookupController {
         Set<String> serachset = new Set<String>();
         List<SObject> alst; 
         
-            if(value == null || String.isBlank(value)){
+        if(!String.isBlank(filter)){    
+            if(String.isBlank(value)){
                 System.debug('select id,'+name+' from '+obj+' '+filter);
                 alst = Database.query('select id,'+name+' from '+obj+' where '+filter);
             }else{
                  System.debug('select id,'+name+' from '+obj+' where '+displayfield+' like \'%'+value+'%\' and '+filter);
                 alst = Database.query('select id,'+name+' from '+obj+' where '+displayfield+' like \'%'+value+'%\' and '+filter);
             }
+        }else{
+            alst = Database.query('select id,'+name+' from '+obj);
+        }    
             System.debug('size of list'+alst.size());
 
             for(SObject a : alst)

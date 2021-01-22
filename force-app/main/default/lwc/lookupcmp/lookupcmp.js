@@ -23,6 +23,7 @@ export default class Lookupcmp extends LightningElement {
     @api displayfield;
     @api singleselectedrec='';
     @api cmpwidth ='long';
+    @api parentId = '';
     
   
     // private Properties
@@ -54,8 +55,10 @@ export default class Lookupcmp extends LightningElement {
 
     @wire(CurrentPageReference) pageRef;
     connectedCallback() {
-        this.is_multiple = JSON.parse(this.multiselect);
-        console.log('disable connected',this.dependent);
+        if(this.multiselect){
+            this.is_multiple = JSON.parse(this.multiselect);
+            console.log('disable connected',this.dependent);
+        }
     }
     renderedCallback(){
         
@@ -132,12 +135,7 @@ export default class Lookupcmp extends LightningElement {
     // ****************** called when click on Search box
     searchField(event) {
         this.spinner_flag = true;
-        let text ='';
-        if(this.dependent===true){
-            text = this.parentId;
-        }else{
-            text = event.target.value;
-        }
+        let text = event.target.value;
         console.log(`{ obj: ${this.sobject}, name: ${this.fieldname}, value: ${text},filter:${this.filter},dependent:${this.dependent},displayfield:${this.displayfield}`);
         console.log('select id,'+this.fieldname+' from '+this.sobject+' where '+this.displayfield+' like \'%'+text+'%\' and '+this.filter);
         
@@ -183,7 +181,7 @@ export default class Lookupcmp extends LightningElement {
                 this.recordData.push(recid);
                 this.btn_clear = true;
                 this.spinner_flag = false;
-                 this.dispatchEvent(new CustomEvent('multiselected',{detail:newObj}));
+                 this.dispatchEvent(new CustomEvent('multiselected',{detail:this.recordData}));
             }
             this.spinner_flag = false;
 

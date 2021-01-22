@@ -3,45 +3,13 @@
     border:none !important;
 	padding-left: 5px;
 }
-/* .cursor {
-	position: relative;
-}
-.cursor	i {
-	position: absolute;
-	width: 1px;
-	height: 80%;
-	background-color: gray;
-	left: 5px;
-	top: 10%;
-	animation-name: blink;
-	animation-duration: 800ms;
-	animation-iteration-count: infinite;
-	opacity: 1;
-}
-
-.cursor input:focus + i {
-	display: none;
-}
-
-@keyframes blink {
-	from { opacity: 1; }
-	to { opacity: 0; }
-} */
-
-/* .backg{
-  border:none;
-  outline-color:#FFFFFF;
-} */
-
 .hideboxcss{
 	display: none;	
 }
 
 .dropdownb{
-	/* height:250px; */
 	max-height: 250px;
 	width: 423px;
-	/*width:230px;*/
 	position: absolute;
 	z-index: 3;
 	border: 1px solid #DEE0E1;
@@ -49,10 +17,8 @@
 }
 
 .dropdownsmall{
-	/* height:250px; */
 	max-height: 250px;
 	width: 189px;
-	/*width:230px;*/
 	position: absolute;
 	z-index: 3;
 	border: 1px solid #DEE0E1;
@@ -74,15 +40,6 @@ position: relative;
 }
 
 .mytextbsmall{
-	/* width: 190px; */
 	padding: 0;
 	padding-left: 10px;
 }
-
-
-/* @media only screen and (max-width: 600px) {
- .mytextb{
-	width:190px;
-	margin-left:-15px;
-	margin-top:10px;
-} */

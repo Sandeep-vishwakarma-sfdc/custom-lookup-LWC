@@ -1,0 +1,6 @@
+<template>
+   <!-- <c-multiselect-picklist  placeholder='Search Account' iconname='standard:user' multiselect=true sobject='Account' fieldname='Name'></c-multiselect-picklist> -->
+   <c-lookupcmp placeholder='select Account' iconname='standard:product' multiselect=true sobject='Account' fieldname='Name' filter={account_filter} displayfield='Name' onselected={handleAccountSelected} singleselectedrec={account} onremove={handleRemoveAccount} cmpwidth='small' dependent=false disable={disable_account} onmultiselected={handleMultipleAccountSelected}></c-lookupcmp> 
+
+   <c-lookupcmp placeholder='select Contact' iconname='standard:product' multiselect=true sobject='Contact' fieldname='Name' filter={contact_filter} displayfield='Name' onselected={handleContactSelected} singleselectedrec={contact} onremove={handleRemovecontact} cmpwidth='small' dependent=false disable={disable_contact}></c-lookupcmp> 
+</template>
